@@ -69,7 +69,12 @@ async def main() -> None:
     parser.add_argument(
         "--use-cuda",
         action="store_true",
-        help="Use GPU"
+        help="Use cuda enabled GPU"
+    )
+    parser.add_argument(
+        "--use-rocm",
+        action="store_true",
+        help="Use rocm enabled GPU"
     )
     #
     parser.add_argument("--debug", action="store_true", help="Log DEBUG messages")

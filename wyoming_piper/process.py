@@ -151,6 +151,9 @@ class PiperProcessManager:
             if self.args.use_cuda:
                 piper_args.extend(["--use-cuda"])
 
+            if self.args.use_rocm:
+                piper_args.extend(["--use-rocm"])
+
             _LOGGER.debug(
                 "Starting piper process: %s args=%s", self.args.piper, piper_args
             )
