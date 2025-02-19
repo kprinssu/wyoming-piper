@@ -149,10 +149,10 @@ class PiperProcessManager:
                 piper_args.extend(["--noise-w", str(self.args.noise_w)])
 
             if self.args.use_cuda:
-                piper_args.extend(["--use-cuda"])
+                piper_args.extend(["--cuda"])
 
             if self.args.use_rocm:
-                piper_args.extend(["--use-rocm"])
+                piper_args.extend(["--rocm"])
 
             _LOGGER.debug(
                 "Starting piper process: %s args=%s", self.args.piper, piper_args
