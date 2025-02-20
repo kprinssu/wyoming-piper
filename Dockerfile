@@ -12,5 +12,3 @@ RUN pip install -U pip && pip install -r requirements.txt --no-cache-dir \
   && pip3 install numpy==1.26.4
 
 ENTRYPOINT [ "sh /app/run.sh" ]
-
-conda run -n py_3.10 bash
