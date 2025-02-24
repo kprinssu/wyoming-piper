@@ -31,6 +31,11 @@ async def main() -> None:
         required=True,
         help="Default Piper voice to use (e.g., en_US-lessac-medium)",
     )
+    parser.add_argument(
+        "--use-rocm",
+        action="store_true",
+        help="Use ROCm GPU Acceleration")
+    )
     parser.add_argument("--uri", default="stdio://", help="unix:// or tcp://")
     parser.add_argument(
         "--data-dir",
