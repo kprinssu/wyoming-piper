@@ -8,4 +8,4 @@ exec python3 -m wyoming_piper \
   --download-dir /data \
   --voice en_US-danny-low \
   --use-rocm \
-  "@"
+  "$@"
