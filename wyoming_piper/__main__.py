@@ -34,7 +34,7 @@ async def main() -> None:
     parser.add_argument(
         "--use-rocm",
         action="store_true",
-        help="Use ROCm GPU Acceleration")
+        help="Use ROCm GPU Acceleration",
     )
     parser.add_argument("--uri", default="stdio://", help="unix:// or tcp://")
     parser.add_argument(
