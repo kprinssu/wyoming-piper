@@ -1,9 +1,7 @@
 """Wyoming server for piper."""
-from pathlib import Path
 
-_DIR = Path(__file__).parent
-_VERSION_PATH = _DIR / "VERSION"
+from importlib.metadata import version
 
-__version__ = _VERSION_PATH.read_text(encoding="utf-8").strip()
+__version__ = version("wyoming_piper")
 
 __all__ = ["__version__"]

@@ -1,4 +1,5 @@
 """Utility for downloading Piper voices."""
+
 import json
 import logging
 import shutil
@@ -10,7 +11,7 @@ from urllib.request import urlopen
 
 from .file_hash import get_file_hash
 
-URL_FORMAT = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/{file}"
+URL_FORMAT = "https://huggingface.co/rhasspy/piper-voices/resolve/main/{file}"
 
 _DIR = Path(__file__).parent
 _LOGGER = logging.getLogger(__name__)
@@ -47,20 +48,21 @@ def get_voices(
         except Exception:
             _LOGGER.exception("Failed to update voices list")
 
+    voices_embedded = _DIR / "voices.json"
+    _LOGGER.debug("Loading %s", voices_embedded)
+    with open(voices_embedded, "r", encoding="utf-8") as voices_file:
+        voices = json.load(voices_file)
+
     # Prefer downloaded file to embedded
     if voices_download.exists():
         try:
             _LOGGER.debug("Loading %s", voices_download)
             with open(voices_download, "r", encoding="utf-8") as voices_file:
-                return json.load(voices_file)
+                voices.update(json.load(voices_file))
         except Exception:
             _LOGGER.exception("Failed to load %s", voices_download)
 
-    # Fall back to embedded
-    voices_embedded = _DIR / "voices.json"
-    _LOGGER.debug("Loading %s", voices_embedded)
-    with open(voices_embedded, "r", encoding="utf-8") as voices_file:
-        return json.load(voices_file)
+    return voices
 
 
 def ensure_voice_exists(
