@@ -76,6 +76,11 @@ async def main() -> None:
         action="store_true",
         help="Use rocm enabled GPU"
     )
+    parser.add_argument(
+        "--use-migraphx",
+        action="store_true",
+        help="Use migraphx with an AMD GPU"
+    )
     #
     parser.add_argument("--debug", action="store_true", help="Log DEBUG messages")
     parser.add_argument(

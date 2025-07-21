@@ -154,6 +154,9 @@ class PiperProcessManager:
             if self.args.use_rocm:
                 piper_args.extend(["--rocm"])
 
+            if self.args.use_migraphx:
+                piper_args.extend(["--migraphx"])
+
             _LOGGER.debug(
                 "Starting piper process: %s args=%s", self.args.piper, piper_args
             )

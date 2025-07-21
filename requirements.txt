@@ -1,1 +1,2 @@
-wyoming==1.5.3
+wyoming==1.7.1
+numpy==1.26.4
